@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:wake/ui/common/barchart.dart';
@@ -155,7 +156,7 @@ class HomeView extends StackedView<HomeViewModel> {
       ),
       bottomNavigationBar: Theme(
         data: ThemeData(
-          textTheme: GoogleFonts.bricolageGrotesqueTextTheme(
+          textTheme: GoogleFonts.mynerveTextTheme(
             Theme.of(context).textTheme,
           ),
           splashColor: Colors.transparent,
@@ -196,90 +197,102 @@ class HomeView extends StackedView<HomeViewModel> {
   Widget _buildHome(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
         backgroundColor: const Color(0xff161616),
+        appBar: AppBar(
+          backgroundColor: const Color(0xff161616),
+          // elevation: .5,
+        ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * .03),
-                      _buildTotalSpendings(viewModel, context),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Your spendings',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: .2,
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                          top: 7,
-                          bottom: 7,
-                          left: MediaQuery.of(context).size.height * .015,
-                          right: MediaQuery.of(context).size.height * .011,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          border: Border.all(
-                            color: Colors.grey.shade900,
-                            width: .5,
-                          ),
-                        ),
-                        child: Row(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * .03),
+                        _buildTotalSpendings(viewModel, context),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
-                              "All time",
+                              'Your spendings',
                               style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,
-                                overflow: TextOverflow.ellipsis,
+                                color: Colors.grey,
                                 fontSize: 11,
-                                height: 0,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: .2,
                               ),
                             ),
-                            const SizedBox(width: 4),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 1.0),
-                              child: Transform.rotate(
-                                angle:
-                                    3 * 3.1415926535897932 / 2, // 270 degrees
-                                child: Icon(
-                                  Icons.chevron_left,
-                                  color: Colors.grey.shade500,
-                                  size: 18,
+                            Container(
+                              padding: EdgeInsets.only(
+                                top: 7,
+                                bottom: 7,
+                                left: MediaQuery.of(context).size.height * .015,
+                                right:
+                                    MediaQuery.of(context).size.height * .011,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                border: Border.all(
+                                  color: Colors.grey.shade900,
+                                  width: .5,
                                 ),
                               ),
-                            )
+                              child: Row(
+                                children: [
+                                  const Text(
+                                    "All time",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                      overflow: TextOverflow.ellipsis,
+                                      fontSize: 11,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 1.0),
+                                    child: Transform.rotate(
+                                      angle: 3 *
+                                          3.1415926535897932 /
+                                          2, // 270 degrees
+                                      child: Icon(
+                                        Icons.chevron_left,
+                                        color: Colors.grey.shade500,
+                                        size: 18,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   BarChartSample1(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 20),
-                      _buildSpendingHistory(context, viewModel),
-                      const SizedBox(height: 20),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 20),
+                        _buildSpendingHistory(context, viewModel),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -291,22 +304,23 @@ class HomeView extends StackedView<HomeViewModel> {
   // Build the insight tab UI
   Widget _buildInsight(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(0xff161616),
+          // elevation: .5,
+        ),
         backgroundColor: const Color(0xff161616),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Center(
-              child: Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * .03),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height * .03),
+                    const SizedBox(height: 20),
+                  ],
                 ),
               ),
             ),
@@ -334,11 +348,11 @@ class HomeView extends StackedView<HomeViewModel> {
   // Build the spending history section UI
   Widget _buildSpendingHistory(BuildContext context, HomeViewModel viewModel) {
     return Container(
-      height: 278,
+      height: 272,
       margin: const EdgeInsets.symmetric(horizontal: 4.0),
       decoration: BoxDecoration(
         color: const Color(0xff202020),
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(18.0),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -375,7 +389,11 @@ class HomeView extends StackedView<HomeViewModel> {
     items.add(Divider(color: Colors.grey.shade600, thickness: .1));
     items.add(SizedBox(height: MediaQuery.of(context).size.height * .005));
 
-    for (int i = 0; i < viewModel.processedData!.length; i++) {
+    for (int i = 0;
+        i <
+            // viewModel.processedData!.length;
+            5;
+        i++) {
       if (viewModel.processedData![i]['Debits'] == "nan") {
         continue;
       }
@@ -389,7 +407,7 @@ class HomeView extends StackedView<HomeViewModel> {
   Widget _buildSpendingHistoryHeader() {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -400,7 +418,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 color: Colors.white,
                 fontSize: 15,
                 fontWeight: FontWeight.w900,
-                letterSpacing: -.02,
+                letterSpacing: -.2,
               ),
             ),
             SizedBox(height: 2),
@@ -448,6 +466,8 @@ class HomeView extends StackedView<HomeViewModel> {
   // Build the icon for a spending history item
   Widget _buildSpendingHistoryItemIcon() {
     return Container(
+      height: 40,
+      width: 40,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(.035),
         shape: BoxShape.circle,
@@ -456,8 +476,12 @@ class HomeView extends StackedView<HomeViewModel> {
           width: .1,
         ),
       ),
-      height: 40,
-      width: 40,
+      child: Center(
+          child: SvgPicture.asset(
+        'assets/export.svg',
+        height: 14,
+        color: Colors.grey.shade200,
+      )),
     );
   }
 

@@ -21,22 +21,25 @@ class FilledMiniBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: TextButton(
-        style: ButtonStyle(
-          padding: WidgetStateProperty.all(
-            const EdgeInsets.symmetric(vertical: 12),
-          ),
-          backgroundColor: WidgetStateProperty.all(
-              isEnabled == false ? const Color(0xff8D60F3) : backgroundColor),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6),
-            ),
-          ),
-        ),
-        onPressed: isEnabled == false ? () {} : onPressed,
+      child: InkWell(
+        // style: ButtonStyle(
+        //   padding: WidgetStateProperty.all(
+        //     const EdgeInsets.symmetric(vertical: 10),
+        //   ),
+        //   backgroundColor: WidgetStateProperty.all(
+        //     // isEnabled == false ?
+        //     Colors.transparent,
+        //     // : backgroundColor
+        //   ),
+        //   shape: WidgetStateProperty.all(
+        //     RoundedRectangleBorder(
+        //       borderRadius: BorderRadius.circular(6),
+        //     ),
+        //   ),
+        // ),
+        onTap: isEnabled == false ? () {} : onPressed,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 4.0),
           child: Text(
             text,
             style: const TextStyle(
