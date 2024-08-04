@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wake/app/app.bottomsheets.dart';
 import 'package:wake/app/app.dialogs.dart';
@@ -19,21 +20,24 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.startupView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      navigatorObservers: [
-        StackedService.routeObserver,
-      ],
-      theme: ThemeData(
-        textTheme: GoogleFonts.bricolageGrotesqueTextTheme(
-          Theme.of(context).textTheme,
+    return ScreenUtilInit(
+      designSize: const Size(374, 844),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: Routes.startupView,
+        onGenerateRoute: StackedRouter().onGenerateRoute,
+        navigatorKey: StackedService.navigatorKey,
+        navigatorObservers: [
+          StackedService.routeObserver,
+        ],
+        theme: ThemeData(
+          textTheme: GoogleFonts.mynerveTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          useMaterial3: false,
         ),
-        useMaterial3: false,
+        darkTheme: ThemeData.dark(),
       ),
-      darkTheme: ThemeData.dark(),
     );
   }
 }

@@ -127,6 +127,7 @@ class HomeViewModel extends BaseViewModel {
   void _parseSuccessResponse(dynamic responseData) {
     try {
       processedData = List<Map<String, dynamic>>.from(responseData);
+      notifyListeners();
       apiCallError = null;
 
       // Calculate debits after processing the response
