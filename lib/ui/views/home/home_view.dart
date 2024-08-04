@@ -197,10 +197,10 @@ class HomeView extends StackedView<HomeViewModel> {
   Widget _buildHome(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
         backgroundColor: const Color(0xff161616),
-        appBar: AppBar(
-          backgroundColor: const Color(0xff161616),
-          // elevation: .5,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: const Color(0xff161616),
+        //   // elevation: .5,
+        // ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0),
@@ -304,10 +304,10 @@ class HomeView extends StackedView<HomeViewModel> {
   // Build the insight tab UI
   Widget _buildInsight(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color(0xff161616),
-          // elevation: .5,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: const Color(0xff161616),
+        //   // elevation: .5,
+        // ),
         backgroundColor: const Color(0xff161616),
         body: SafeArea(
           child: Padding(
@@ -337,7 +337,7 @@ class HomeView extends StackedView<HomeViewModel> {
           "₦${formatCurrency(viewModel.debitsBreakdown["Total"].toString())}",
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 28,
+            fontSize: 24,
             fontWeight: FontWeight.w900,
           ),
         ),
