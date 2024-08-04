@@ -63,9 +63,23 @@ class BarChartSample1State extends State<BarChartSample1> {
       barRods: [
         BarChartRodData(
           toY: isTouched ? y + 1 : y,
-          color: isTouched ? kcPrimaryColor : Colors.transparent,
           width: width,
           borderRadius: BorderRadius.circular(0),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: isTouched
+                ? [
+                    kcPrimaryColor,
+                    kcPrimaryColor,
+                    kcPrimaryColor,
+                  ]
+                : [
+                    Colors.grey.shade900.withOpacity(.1),
+                    Colors.grey.shade900.withOpacity(.35),
+                    Colors.grey.shade900.withOpacity(.5),
+                  ],
+          ),
           borderSide: isTouched
               ? BorderSide(color: Colors.grey.shade600, width: .1)
               : BorderSide(color: Colors.grey.shade600, width: .1),

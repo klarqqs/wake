@@ -320,7 +320,7 @@ class HomeView extends StackedView<HomeViewModel> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "-₦${formatCurrency(viewModel.debitsBreakdown["Total"].toString())}",
+          "₦${formatCurrency(viewModel.debitsBreakdown["Total"].toString())}",
           style: const TextStyle(
             color: Colors.white,
             fontSize: 28,
@@ -339,6 +339,15 @@ class HomeView extends StackedView<HomeViewModel> {
       decoration: BoxDecoration(
         color: const Color(0xff202020),
         borderRadius: BorderRadius.circular(12.0),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Colors.grey.shade900.withOpacity(.35),
+            Colors.grey.shade900.withOpacity(.5),
+            Colors.grey.shade900.withOpacity(.65),
+          ],
+        ),
         border: Border.all(
           color: Colors.grey.shade600,
           width: .2,
