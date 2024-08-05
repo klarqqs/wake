@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,7 +65,7 @@ class BarChartSample1State extends State<BarChartSample1> {
     double y, {
     bool isTouched = false,
     Color? barColor,
-    double width = 2,
+    double width = 6,
     bool isHigest = false,
     List<int> showTooltips = const [],
   }) {
@@ -113,14 +111,13 @@ class BarChartSample1State extends State<BarChartSample1> {
     );
   }
 
-  List<BarChartGroupData> showingGroups() => List.generate(4, (i) {
+  List<BarChartGroupData> showingGroups() => List.generate(12, (i) {
         switch (i) {
           case 0:
             return makeGroupData(
               0,
-              10.9,
+              3,
               isTouched: i == touchedIndex,
-              isHigest: true,
             );
           case 1:
             return makeGroupData(
@@ -158,12 +155,15 @@ class BarChartSample1State extends State<BarChartSample1> {
               6.2,
               isTouched: i == touchedIndex,
             );
+
           case 7:
             return makeGroupData(
               7,
-              3,
+              10.9,
               isTouched: i == touchedIndex,
+              isHigest: true,
             );
+
           case 8:
             return makeGroupData(
               8,
@@ -299,15 +299,16 @@ class BarChartSample1State extends State<BarChartSample1> {
       borderData: FlBorderData(
         show: false,
       ),
+      // groupsSpace: 24.w,
       barGroups: showingGroups(),
-      alignment: BarChartAlignment.spaceAround,
+      alignment: BarChartAlignment.spaceEvenly,
       gridData: const FlGridData(show: false),
     );
   }
 
   Widget getTitles(double value, TitleMeta meta) {
     const style = TextStyle(
-      color: Colors.white,
+      color: kcLightGrey,
       fontSize: 12,
       fontWeight: FontWeight.w900,
       height: 0,
