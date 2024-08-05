@@ -87,13 +87,13 @@ class AuthHeader extends StatelessWidget {
                       ),
                       textAlign: TextAlign.start,
                     ),
-                    // SizedBox(height: 2.h),
+                    SizedBox(height: 4.h),
                     Text(
                       description,
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white.withOpacity(.8),
+                        color: Colors.white.withOpacity(.7),
                         letterSpacing: 0,
                         overflow: TextOverflow.ellipsis,
                       ),

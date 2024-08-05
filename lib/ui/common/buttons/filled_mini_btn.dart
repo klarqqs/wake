@@ -145,17 +145,17 @@ class FilledMiniBtn2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                'assets/svgs/import.svg',
-                height: 18,
-                color: kcPrimaryColor,
-              ),
-              const SizedBox(width: 10),
+              // SvgPicture.asset(
+              //   'assets/svgs/import.svg',
+              //   height: 16,
+              //   color: kcPrimaryColor,
+              // ),
+              // const SizedBox(width: 10),
               Text(
                 text,
                 style: const TextStyle(
                   color: kcPrimaryColor,
-                  fontSize: 12,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                 ),
               ),

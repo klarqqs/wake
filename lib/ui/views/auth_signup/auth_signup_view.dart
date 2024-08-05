@@ -172,7 +172,7 @@ class AuthSignupView extends StackedView<AuthSignupViewModel> {
               TextSpan(
                 text: "Already have an account?",
                 style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                   letterSpacing: 0,
@@ -182,7 +182,7 @@ class AuthSignupView extends StackedView<AuthSignupViewModel> {
                   TextSpan(
                     text: " Log in",
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w900,
                       color: kcPrimaryColor,
                       letterSpacing: 0,

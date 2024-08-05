@@ -109,7 +109,7 @@ class AuthLoginView extends StackedView<AuthLoginViewModel> {
                     TextSpan(
                       text: "Forgot password? ",
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
                         letterSpacing: 0,
@@ -119,7 +119,7 @@ class AuthLoginView extends StackedView<AuthLoginViewModel> {
                         TextSpan(
                           text: "Recover now",
                           style: TextStyle(
-                            fontSize: 14.sp,
+                            fontSize: 13.sp,
                             fontWeight: FontWeight.w600,
                             color: kcPrimaryColor,
                             letterSpacing: 0,
@@ -169,7 +169,7 @@ class AuthLoginView extends StackedView<AuthLoginViewModel> {
               TextSpan(
                 text: "Don’t have an account? ",
                 style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                   letterSpacing: 0,
@@ -179,7 +179,7 @@ class AuthLoginView extends StackedView<AuthLoginViewModel> {
                   TextSpan(
                     text: "Create account",
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w600,
                       color: kcPrimaryColor,
                       letterSpacing: 0,

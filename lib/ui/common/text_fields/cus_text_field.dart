@@ -50,7 +50,7 @@ class CustomTextField extends StatelessWidget {
             label!,
             style: GoogleFonts.mynerve(
               color: const Color(0xffB9BCC8),
-              fontSize: 13.sp,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -72,7 +72,7 @@ class CustomTextField extends StatelessWidget {
             formatter ?? FilteringTextInputFormatter.singleLineFormatter,
           ],
           style: TextStyle(
-            fontSize: 15.sp,
+            fontSize: 14.sp,
             color: Colors.white,
             fontWeight: FontWeight.w600,
           ),

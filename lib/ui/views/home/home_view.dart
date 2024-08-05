@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:wake/app/app.router.dart';
-// import 'package:wake/ui/common/barchart.dart';
 import 'package:wake/ui/common/buttons/filled_mini_btn.dart';
 
 import 'home_viewmodel.dart';
@@ -55,15 +54,20 @@ class HomeView extends StackedView<HomeViewModel> {
               color: Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w900,
               fontSize: 18,
+              letterSpacing: -.1,
             ),
           ),
           SizedBox(height: 12.h),
           Text(
             'Upload a PDF statement of account with up to 24 months of transaction history.',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(.6), fontSize: 14),
+            style: TextStyle(
+              color: Colors.white.withOpacity(.6),
+              fontSize: 14,
+              letterSpacing: -.1,
+            ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -127,7 +131,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 color: Colors.white,
                 fontSize: 15,
                 fontWeight: FontWeight.w900,
-                letterSpacing: -.2,
+                // letterSpacing: -.2,
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .04),
@@ -162,7 +166,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.w900,
-                  letterSpacing: -.2,
+                  // letterSpacing: -.2,
                 ),
               ),
             ),

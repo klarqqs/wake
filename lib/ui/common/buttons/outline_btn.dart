@@ -40,7 +40,7 @@ class OutlineBtn extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 16.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeight.w900,
             color: kcPrimaryColorDark,
             letterSpacing: .2,
