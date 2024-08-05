@@ -308,7 +308,7 @@ class BarChartSample1State extends State<BarChartSample1> {
 
   Widget getTitles(double value, TitleMeta meta) {
     const style = TextStyle(
-      color: kcMediumGrey,
+      color: kcLightGrey,
       fontSize: 12,
       fontWeight: FontWeight.w900,
       height: 0,
