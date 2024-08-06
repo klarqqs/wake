@@ -30,7 +30,7 @@ class HomeView extends StackedView<HomeViewModel> {
       return _buildLoadingIndicator();
     }
     if (viewModel.apiCallError != null) {
-      return _buildErrorText(viewModel.apiCallError!);
+      return _buildErrorText(viewModel, viewModel.apiCallError!);
     }
     if (viewModel.processedData != null) {
       return _buildProcessedDataSection(context, viewModel);
@@ -51,7 +51,10 @@ class HomeView extends StackedView<HomeViewModel> {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white.withOpacity(.9),
+              color: text != "Get insights on your spending" ||
+                      text != "No subscription found"
+                  ? Colors.red
+                  : Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w900,
               fontSize: 18,
               letterSpacing: -.1,
@@ -93,10 +96,8 @@ class HomeView extends StackedView<HomeViewModel> {
     );
   }
 
-  Widget _buildErrorText(String error) {
-    return Center(
-      child: Text(error, style: const TextStyle(color: Colors.red)),
-    );
+  Widget _buildErrorText(HomeViewModel viewModel, String error) {
+    return _buildUploadSection(viewModel, text: error);
   }
 
   Widget _buildProcessedDataSection(

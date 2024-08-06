@@ -73,7 +73,7 @@ class MiniOptionTextBtn extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 assetName!,
-                height: 16,
+                height: 18,
                 color: Colors.white.withOpacity(.7),
               ),
               const SizedBox(width: 8),
