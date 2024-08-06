@@ -36,27 +36,26 @@ class SpendingHistoryView extends StackedView<SpendingHistoryViewModel> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              InkWell(
-                onTap: () => viewModel.navigationService.back(),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24.0,
-                    vertical: 8.0,
-                  ),
-                  child: SvgPicture.asset(
-                    "assets/svgs/back.svg",
-                    // ignore: deprecated_member_use
-                    color: Colors.white,
-                  ),
-                ),
+          InkWell(
+            onTap: () => viewModel.navigationService.back(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 8.0,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Text(
+              child: SvgPicture.asset(
+                "assets/svgs/back.svg",
+                // ignore: deprecated_member_use
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
                   "Spending History",
                   style: TextStyle(
                     color: Colors.white,
@@ -66,11 +65,10 @@ class SpendingHistoryView extends StackedView<SpendingHistoryViewModel> {
                     height: 0,
                   ),
                 ),
-              ),
-            ],
+                _buildSpendingHistorySortItem(context, viewModel),
+              ],
+            ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * .04),
-          _buildSpendingHistorySortItem(context, viewModel),
           // SizedBox(height: MediaQuery.of(context).size.height * .06),
           _buildSpendingHistory(context, viewModel),
         ],
@@ -116,7 +114,7 @@ class SpendingHistoryView extends StackedView<SpendingHistoryViewModel> {
   Widget _buildSpendingHistorySortItem(
       BuildContext context, SpendingHistoryViewModel viewModel) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 42.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 0.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -126,13 +124,13 @@ class SpendingHistoryView extends StackedView<SpendingHistoryViewModel> {
             assetName: "assets/svgs/search-normal.svg",
             onPressed: () => {},
           ),
-          const SizedBox(width: 18),
+          // const SizedBox(width: 18),
           MiniOptionTextBtn(
             text: 'Filter',
             assetName: "assets/svgs/filter.svg",
             onPressed: () => {},
           ),
-          const SizedBox(width: 18),
+          // const SizedBox(width: 18),
           MiniOptionTextBtn(
             text: 'Sort',
             assetName: "assets/svgs/sort.svg",

@@ -30,6 +30,7 @@ class MainApp extends StatelessWidget {
         navigatorObservers: [
           StackedService.routeObserver,
         ],
+        // shantellSans
         theme: ThemeData(
           textTheme: GoogleFonts.mynerveTextTheme(
             Theme.of(context).textTheme,

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:wake/app/app.router.dart';
-// import 'package:wake/ui/common/barchart.dart';
 import 'package:wake/ui/common/buttons/filled_mini_btn.dart';
 
 import 'home_viewmodel.dart';
@@ -31,7 +30,7 @@ class HomeView extends StackedView<HomeViewModel> {
       return _buildLoadingIndicator();
     }
     if (viewModel.apiCallError != null) {
-      return _buildErrorText(viewModel.apiCallError!);
+      return _buildErrorText(viewModel, viewModel.apiCallError!);
     }
     if (viewModel.processedData != null) {
       return _buildProcessedDataSection(context, viewModel);
@@ -52,18 +51,26 @@ class HomeView extends StackedView<HomeViewModel> {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white.withOpacity(.9),
+              color: text != "Get insights on your spending" ||
+                      text != "No subscription found"
+                  ? Colors.red
+                  : Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w900,
               fontSize: 18,
+              letterSpacing: -.1,
             ),
           ),
           SizedBox(height: 12.h),
           Text(
             'Upload a PDF statement of account with up to 24 months of transaction history.',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(.6), fontSize: 14),
+            style: TextStyle(
+              color: Colors.white.withOpacity(.6),
+              fontSize: 14,
+              letterSpacing: -.1,
+            ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,10 +96,8 @@ class HomeView extends StackedView<HomeViewModel> {
     );
   }
 
-  Widget _buildErrorText(String error) {
-    return Center(
-      child: Text(error, style: const TextStyle(color: Colors.red)),
-    );
+  Widget _buildErrorText(HomeViewModel viewModel, String error) {
+    return _buildUploadSection(viewModel, text: error);
   }
 
   Widget _buildProcessedDataSection(
@@ -127,7 +132,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 color: Colors.white,
                 fontSize: 15,
                 fontWeight: FontWeight.w900,
-                letterSpacing: -.2,
+                // letterSpacing: -.2,
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .04),
@@ -162,7 +167,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.w900,
-                  letterSpacing: -.2,
+                  // letterSpacing: -.2,
                 ),
               ),
             ),
