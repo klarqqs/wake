@@ -146,7 +146,9 @@ class AuthLoginView extends StackedView<AuthLoginViewModel> {
 
   Widget _buildFooter(BuildContext context, AuthLoginViewModel viewModel) {
     return Container(
-      color: const Color.fromARGB(255, 15, 15, 15),
+      decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 15, 15, 15),
+          border: Border.all(width: 0)),
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:wake/app/app.router.dart';
+import 'package:wake/ui/common/barchart.dart';
 import 'package:wake/ui/common/buttons/filled_mini_btn.dart';
 
 import 'home_viewmodel.dart';
@@ -51,10 +52,13 @@ class HomeView extends StackedView<HomeViewModel> {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: text != "Get insights on your spending" ||
-                      text != "No subscription found"
-                  ? Colors.red
-                  : Colors.white.withOpacity(.9),
+              color:
+                  // text != "Get insights on your spending" ||
+                  //         text != "No subscription found"
+                  //     ? Colors.red
+                  //     :
+
+                  Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w900,
               fontSize: 18,
               letterSpacing: -.1,
@@ -135,14 +139,14 @@ class HomeView extends StackedView<HomeViewModel> {
                 // letterSpacing: -.2,
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * .04),
+            SizedBox(height: MediaQuery.of(context).size.height * .03),
             _buildSpendingsHeader(),
             SizedBox(height: 4.h),
             _buildTotalSpendings(viewModel),
-            SizedBox(height: MediaQuery.of(context).size.height * .06),
+            BarChartSample1(),
+            SizedBox(height: MediaQuery.of(context).size.height * .03),
             _buildSpendingHistory(context, viewModel),
-            // BarChartSample1(),
-            const SizedBox(height: 180),
+            const SizedBox(height: 18),
           ],
         ),
       ),
@@ -284,7 +288,7 @@ class HomeView extends StackedView<HomeViewModel> {
   List<Widget> _buildSpendingHistoryItems(
       BuildContext context, HomeViewModel viewModel) {
     return List.generate(
-      7,
+      5,
       (index) {
         if (viewModel.processedData![index]['Debits'] == "nan") {
           return const SizedBox.shrink();

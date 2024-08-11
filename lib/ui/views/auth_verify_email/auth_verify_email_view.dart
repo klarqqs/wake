@@ -104,7 +104,9 @@ class AuthVerifyEmailView extends StackedView<AuthVerifyEmailViewModel> {
   Widget _buildFooter(
       BuildContext context, AuthVerifyEmailViewModel viewModel) {
     return Container(
-      color: const Color.fromARGB(255, 15, 15, 15),
+      decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 15, 15, 15),
+          border: Border.all(width: 0)),
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
